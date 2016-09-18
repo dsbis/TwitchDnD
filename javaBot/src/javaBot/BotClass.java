@@ -4,6 +4,7 @@ import org.jibble.pircbot.*;
 public class BotClass extends PircBot{
 
 	VoteCounter vote;
+	//BotControlWindow control;
 	
 	
 	/**
@@ -13,7 +14,8 @@ public class BotClass extends PircBot{
 	public BotClass(String name) {
 		setName(name);
 		setLogin(name);
-		vote = new VoteCounter(4);
+		vote = new VoteCounter(3);
+		//control = new BotControlWindow(this, vote);
 	}
 	
 	/**
@@ -27,13 +29,6 @@ public class BotClass extends PircBot{
 	 */
 	public void onMessage(String channel, String sender, String login, String hostname, String message) {
 		vote.collectVote(message);
-		
-		/*
-		if(message.equals("winner")) {
-			this.getWinner();
-		} else if(message.equals("reset")) {
-			this.reset();
-		}*/
 			
 	}
 	
@@ -46,6 +41,10 @@ public class BotClass extends PircBot{
 		//System.out.println("Success");
 		return vote.selectWinner();
 		
+	}
+	
+	public int getCount(int i) {
+		return vote.getVoteCount(i);
 	}
 	
 	/**

@@ -9,7 +9,7 @@ public class testBot {
 	public static void main(String[] args) {
 		
 		BotClass bot = new BotClass("phosphorust");
-		BotControlWindow control = new BotControlWindow(bot);
+		//BotControlWindow control = new BotControlWindow(bot);
 		
 		bot.setVerbose(true);
 		
@@ -21,7 +21,6 @@ public class testBot {
 		} catch (IrcException e) {
 			System.err.println("Server did not accept request.");
 		} catch (IOException e) {
-			
 			System.err.println("Could not connect to server.");
 		}
 		

@@ -15,7 +15,7 @@ public class VoteCounter {
 	private int optionSize;
 	
 	/**
-	 * Creates VoteCounter with intial vote stats
+	 * Creates VoteCounter with initial vote stats
 	 * @param numberOfOptions
 	 */
 	public VoteCounter(int numberOfOptions) {
@@ -59,7 +59,15 @@ public class VoteCounter {
 		int winningVote = -1;
 		
 		for(int i=0; i < voteCount.length; i++) {
-			if(voteCount[i] > largestElement) {
+			if(voteCount[0] == voteCount[1] && voteCount[0] != voteCount[2]) {
+				winningVote = (int) (Math.random() * 2);
+			} else if (voteCount[1] == voteCount[2] && voteCount[0] != voteCount[2]) {
+				winningVote = (int) (Math.random() * 2 + 1);
+			} else if (voteCount[0] == voteCount[2] && voteCount[1] != voteCount[2]) {
+				winningVote = (int)((Math.random() * 10) % 2) * 2;
+			}else if (voteCount[0] == voteCount[1] && voteCount[0] == voteCount[2]) {
+				winningVote = (int) (Math.random() * 3);
+			}else if(voteCount[i] > largestElement) { 
 				largestElement = voteCount[i];
 				winningVote = i;
 			}
